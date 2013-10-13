@@ -4,6 +4,7 @@
  */
 package com.tecsup.clubapp.dao;
 
+import com.tecsup.clubapp.helper.ConnectionDB;
 import com.tecsup.clubapp.model.Servicio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
-import zelper.ConexionDB;
+
 
 /**
  *
@@ -26,7 +27,7 @@ public class ServicioDAO extends BaseDAO{
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			con = ConexionDB.obtenerConexion();
+			con = ConnectionDB.obtenerConexion();
 			// Conexion al la BD
                         String query = "select * from servicio";
 			stmt = con.prepareStatement(query);
