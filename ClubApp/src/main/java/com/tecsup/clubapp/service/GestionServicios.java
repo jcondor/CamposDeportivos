@@ -16,7 +16,9 @@ import java.util.Collection;
 public class GestionServicios {
     
     public static void main(String[] args) throws DAOExcepcion{
-        GestionServicios.listar();
+       Servicio servicio1 = GestionServicios.insertar("otro servicio", 31.20);
+       System.out.println(servicio1.getId());
+       //GestionServicios.listar();
     }
     
     
@@ -27,6 +29,16 @@ public class GestionServicios {
                             System.out.println(servicio.getId()+" "+ servicio.getDescripcion()+" "+ servicio.getCostoHora());
                         }
               
+	}
+    
+    public static Servicio insertar(String descripcion, Double costaHora)
+			throws DAOExcepcion {
+		ServicioDAO dao = new ServicioDAO();
+		Servicio vo = new Servicio();
+		vo.setDescripcion(descripcion);
+		vo.setCostoHora(costaHora);
+
+		return dao.insertar(vo);
 	}
 
 }
