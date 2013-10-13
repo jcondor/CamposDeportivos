@@ -12,7 +12,6 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
     </properties>
 
     <dependencies>
@@ -29,11 +28,10 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-	<groupId>mysql</groupId>
+	    <groupId>mysql</groupId>
 	    <artifactId>mysql-connector-java</artifactId>
-	<version>5.1.26</version>
-</dependency>
-            
+	    <version>5.1.26</version>
+        </dependency>
     </dependencies>
 
     <build>
