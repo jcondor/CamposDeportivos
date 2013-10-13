@@ -4,6 +4,8 @@
  */
 package com.tecsup.clubapp.dao;
 
+import com.tecsup.clubapp.helper.ConnectionDB;
+import com.tecsup.clubapp.model.Local;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +19,39 @@ import java.util.Collection;
  */
 public class LocalDAO extends BaseDAO {
     
-    public Collection<Categoria> buscarPorNombre(String nombre)
+    public Collection<Local> listar() throws DAOExcepcion {
+		Collection<Local> c = new ArrayList<Local>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConnectionDB.obtenerConexion();
+			String query = "select id, direccion, descripcion, estado, maps, telefono from local order by direccion";
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Local vo = new Local();
+				vo.setId(rs.getInt("id"));
+				vo.setDireccion(rs.getString("direccion"));
+				vo.setDescripcion(rs.getString("descripcion"));
+                                vo.setEstado(rs.getInt("estado"));
+                                vo.setMaps(rs.getString("map"));
+                                vo.setTelefono(rs.getString("telefono"));
+				c.add(vo);
+			}
+
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return c;
+	}
+    
+ /*   public Collection<Local> buscarPorNombre(String nombre)
 			throws DAOExcepcion {
 		String query = "select id_categoria, nombre, descripcion from categoria where nombre like ?";
 		Collection<Categoria> lista = new ArrayList<Categoria>();
@@ -155,33 +189,19 @@ public class LocalDAO extends BaseDAO {
 		return vo;
 	}
 
-	public Collection<Categoria> listar() throws DAOExcepcion {
-		Collection<Categoria> c = new ArrayList<Categoria>();
-		Connection con = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		try {
-			con = ConectionDB.obtenerConexion();
-			String query = "select id_categoria,nombre,descripcion from categoria order by nombre";
-			stmt = con.prepareStatement(query);
-			rs = stmt.executeQuery();
-			while (rs.next()) {
-				Categoria vo = new Categoria();
-				vo.setId(rs.getInt("id_categoria"));
-				vo.setNombre(rs.getString("nombre"));
-		//		vo.setDescripcion(rs.getString("descripcion"));
-				c.add(vo);
-			}
+    private void cerrarResultSet(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			throw new DAOExcepcion(e.getMessage());
-		} finally {
-			this.cerrarResultSet(rs);
-			this.cerrarStatement(stmt);
-			this.cerrarConexion(con);
-		}
-		return c;
-	}
+    private void cerrarStatement(PreparedStatement stmt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void cerrarConexion(Connection con) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ */
+	
     
 }

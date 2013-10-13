@@ -72,6 +72,9 @@ public class Local {
         this.maps = maps;
         this.telefono = telefono;
     }
+
+    public Local() {
+    }
     
     
 }
