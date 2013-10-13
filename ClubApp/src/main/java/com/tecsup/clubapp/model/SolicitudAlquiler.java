@@ -18,7 +18,7 @@ private Date dia;
 private String servicios;
 private int estado;
 private Socio idSocio;
-private Campo long idCampo;
+private Campo idCampo;
 
     
     
