@@ -53,6 +53,41 @@ public class ServicioDAO extends BaseDAO{
 		}
 		return servicio;
 	}
+
+    public Servicio insertar(Servicio vo) throws DAOExcepcion {
+		String query = "insert into servicio(descripcion,costo_hora) values (?,?)";
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConnectionDB.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setString(1, vo.getDescripcion());
+			stmt.setDouble(2, vo.getCostoHora());
+			int i = stmt.executeUpdate();
+			if (i != 1) {
+				throw new SQLException("No se pudo insertar");
+			}
+			// Obtener el ultimo id
+			int id = 0;
+			query = "select last_insert_id()";
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				id = rs.getInt(1);
+			}
+			vo.setId(id);
+
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return vo;
+	}
     
     
     
