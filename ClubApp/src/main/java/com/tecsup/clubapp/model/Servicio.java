@@ -13,6 +13,30 @@ public class Servicio {
     private String descripcion;
     private Double costoHora;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Double getCostoHora() {
+        return costoHora;
+    }
+
+    public void setCostoHora(Double costoHora) {
+        this.costoHora = costoHora;
+    }
+
     
     
 }
