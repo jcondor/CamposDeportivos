@@ -5,6 +5,7 @@
 package com.tecsup.clubapp.dao;
 
 import com.tecsup.clubapp.model.Servicio;
+import java.util.Collection;
 
 /**
  *
