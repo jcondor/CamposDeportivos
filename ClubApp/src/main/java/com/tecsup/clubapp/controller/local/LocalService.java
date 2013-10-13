@@ -7,7 +7,6 @@ package com.tecsup.clubapp.controller.local;
 import com.tecsup.clubapp.dao.DAOExcepcion;
 import com.tecsup.clubapp.dao.LocalDAO;
 import com.tecsup.clubapp.model.Local;
-import static com.tecsup.clubapp.service.GestionLocal.listar;
 import java.util.Collection;
 
 /**
