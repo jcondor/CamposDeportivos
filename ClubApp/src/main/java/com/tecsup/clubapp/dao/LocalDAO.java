@@ -51,6 +51,29 @@ public class LocalDAO extends BaseDAO {
 		return c;
 	}
     
+    public Local insertar(Local vo) throws DAOExcepcion {
+		String query = "insert into local(direccion,descripcion) values (?,?)";
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConnectionDB.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setString(1, vo.getDireccion());
+			stmt.setString(2, vo.getDescripcion());
+			int i = stmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return vo;
+	}
+    
  /*   public Collection<Local> buscarPorNombre(String nombre)
 			throws DAOExcepcion {
 		String query = "select id_categoria, nombre, descripcion from categoria where nombre like ?";
@@ -188,20 +211,21 @@ public class LocalDAO extends BaseDAO {
 		}
 		return vo;
 	}
+*/
 
-    private void cerrarResultSet(ResultSet rs) {
+    @Override
+    protected void cerrarResultSet(ResultSet rs) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void cerrarStatement(PreparedStatement stmt) {
+    @Override
+    protected void cerrarStatement(PreparedStatement stmt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void cerrarConexion(Connection con) {
+    @Override
+    protected void cerrarConexion(Connection con) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
- */
-	
-    
 }

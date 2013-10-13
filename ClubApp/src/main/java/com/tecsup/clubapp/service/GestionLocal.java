@@ -6,9 +6,7 @@ package com.tecsup.clubapp.service;
 
 import com.tecsup.clubapp.dao.DAOExcepcion;
 import com.tecsup.clubapp.dao.LocalDAO;
-import com.tecsup.clubapp.dao.ServicioDAO;
 import com.tecsup.clubapp.model.Local;
-import com.tecsup.clubapp.model.Servicio;
 import java.util.Collection;
 
 /**
@@ -17,21 +15,29 @@ import java.util.Collection;
  */
 public class GestionLocal {
     public static void main(String[] args) throws DAOExcepcion {
-        GestionLocal.listar();
+        listar();
     }
     
     public static void  listar() throws DAOExcepcion {
 		LocalDAO dao = new LocalDAO();
-		Collection<Local> locales = dao.listar();
-                        for(Local local: locales){
+                
+                Local local = new Local();
+                local.setDireccion("Lima");
+                local.setDescripcion("Primer ejemplo");
+        
+                dao.insertar(local);
+		
+                Collection<Local> locales = dao.listar();
+                        for(Local localx: locales){
                             System.out.println(
-                                    local.getId()+" "+ 
-                                    local.getDireccion()+" "+
-                                    local.getDescripcion()+" "+
-                                    local.getEstado()+" "+
-                                    local.getMaps()+" "+
-                                    local.getTelefono());
+                                    localx.getId()+" "+ 
+                                    localx.getDireccion()+" "+
+                                    localx.getDescripcion()+" "+
+                                    localx.getEstado()+" "+
+                                    localx.getMaps()+" "+
+                                    localx.getTelefono());
                         }
               
 	}
+
 }
