@@ -22,7 +22,7 @@ public class GestionLocal {
 		LocalDAO dao = new LocalDAO();
                 
                 Local local = new Local();
-                local.setDireccion("Lima");
+                local.setDireccion("Arequipa");
                 local.setDescripcion("Primer ejemplo");
         
                 dao.insertar(local);

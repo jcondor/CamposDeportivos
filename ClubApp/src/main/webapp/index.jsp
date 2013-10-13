@@ -10,6 +10,6 @@
   <body>
     <h1>Hello, worldsss!</h1>
     
-    <%@include file="public/scripts.jsp" %>
+    <%@include file="public/footer.jsp" %>
   </body>
 </html>
