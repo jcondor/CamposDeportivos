@@ -2,18 +2,19 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tecsup.clubapp.service;
+package com.tecsup.clubapp.controller.local;
 
 import com.tecsup.clubapp.dao.DAOExcepcion;
 import com.tecsup.clubapp.dao.LocalDAO;
 import com.tecsup.clubapp.model.Local;
+import static com.tecsup.clubapp.service.GestionLocal.listar;
 import java.util.Collection;
 
 /**
  *
  * @author LAB704-00
  */
-public class GestionLocal {
+public class LocalService {
     public static void main(String[] args) throws DAOExcepcion {
         listar();
     }
@@ -22,5 +23,4 @@ public class GestionLocal {
 		LocalDAO dao = new LocalDAO();
                 return dao.listar();
     }
-
 }
