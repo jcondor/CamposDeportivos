@@ -13,13 +13,14 @@ import java.sql.Date;
 public class SolicitudAlquiler {
 
     private long id;
-    private String horaInicio;
-    private String horaFin;
-    private Date dia;
-    private String servicios;
-    private int estado;
-    private Socio idSocio;
-    private Campo idCampo;
+private String horaInicio;
+private String horaFin;
+private Date dia;
+private String servicios;
+private int estado;
+private Socio idSocio;
+private Campo idCampo;
+
 
     public long getId() {
         return id;
