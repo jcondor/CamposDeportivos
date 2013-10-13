@@ -8,6 +8,6 @@ package com.tecsup.clubapp.model;
  *
  * @author LAB704-00
  */
-public class NewClass3 {
+public class Local {
     
 }
