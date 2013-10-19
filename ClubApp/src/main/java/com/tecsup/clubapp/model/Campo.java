@@ -15,8 +15,7 @@ public class Campo {
     private int tipo;
     private double costoHora;
     private long idLocal;
-    private String campocol;
-
+    
     public long getId() {
         return id;
     }
@@ -65,23 +64,19 @@ public class Campo {
         this.idLocal = idLocal;
     }
 
-    public String getCampocol() {
-        return campocol;
-    }
-
-    public void setCampocol(String campocol) {
-        this.campocol = campocol;
-    }
-
-    public Campo(long id, String descripcion, int estado, int tipo, double costoHora, long idLocal, String campocol) {
+    public Campo(long id, String descripcion, int estado, int tipo, double costoHora, long idLocal) {
         this.id = id;
         this.descripcion = descripcion;
         this.estado = estado;
         this.tipo = tipo;
         this.costoHora = costoHora;
         this.idLocal = idLocal;
-        this.campocol = campocol;
     }
+
+    public Campo() {
+    }
+    
+    
     
     
 }
