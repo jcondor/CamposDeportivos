@@ -20,7 +20,7 @@ public class GestionLocal {
     
     public static Collection<Local> listar() throws DAOExcepcion {
 		LocalDAO dao = new LocalDAO();
-                return dao.listar();
+                return dao.list();
     }
 
 }
