@@ -52,8 +52,7 @@ public class LocalDAO extends BaseDAO {
         return lista;
     }
 
-    public Local get(Local local)
-            throws DAOExcepcion {
+    public Local get(Local local) throws DAOExcepcion {
         String query = "select * from local where id = ?";
         Connection con = null;
         PreparedStatement stmt = null;
