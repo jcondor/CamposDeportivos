@@ -36,7 +36,6 @@ public class LocalDAO extends BaseDAO {
                 item.setEstado(rs.getInt("estado"));
                 lista.add(item);
             }
-
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         } finally {

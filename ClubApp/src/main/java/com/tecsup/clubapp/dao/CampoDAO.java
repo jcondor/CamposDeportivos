@@ -36,7 +36,6 @@ public class CampoDAO extends BaseDAO {
                 item.setIdLocal(rs.getInt("id_local"));
                 lista.add(item);
             }
-
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         } finally {
