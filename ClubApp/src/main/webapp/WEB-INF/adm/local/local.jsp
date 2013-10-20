@@ -2,7 +2,7 @@
 <%@page import="com.tecsup.clubapp.model.Local"%>
 <%@page import="java.util.List"%>
 <%@page import="com.tecsup.clubapp.helper.Constants"%>
-<%@page import="com.tecsup.clubapp.model.Local"%>
+
 <%
     List<Local> locales = (List<Local>) request.getAttribute("locales");
 %>

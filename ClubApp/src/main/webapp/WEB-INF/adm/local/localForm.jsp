@@ -1,6 +1,8 @@
-<%@page import="app.model.Local"%>
-<%@page import="app.zelper.Constants"%>
+<%@page import="com.tecsup.clubapp.model.Local"%>
+<%@page import="java.util.List"%>
+<%@page import="com.tecsup.clubapp.helper.Constants"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

@@ -109,7 +109,7 @@ public class LocalController extends HttpServlet {
         local.setId(Long.parseLong(request.getParameter("id")));
         service.delete(local);
 
-        response.sendRedirect(request.getContextPath()+"/adm/local");
+        response.sendRedirect(request.getContextPath()+"/adm/locales");
 
     }
 }
