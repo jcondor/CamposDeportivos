@@ -14,7 +14,7 @@ import java.util.List;
 
 public class LocalDAO extends BaseDAO {
     
-    public List<Local> list() throws DAOExcepcion {
+    public List<Local> list() {
         List<Local> lista = new ArrayList<Local>();
 
         Connection con = null;
@@ -46,7 +46,7 @@ public class LocalDAO extends BaseDAO {
         return lista;
     }
 
-    public Local get(Local local) throws DAOExcepcion {
+    public Local get(Local local) {
         String query = "select * from local where id = ?";
         Connection con = null;
         PreparedStatement stmt = null;
@@ -77,7 +77,7 @@ public class LocalDAO extends BaseDAO {
         return item;
     }
 
-    public Local save(Local local) throws DAOExcepcion {
+    public Local save(Local local) {
         String query = "insert into local(direccion,descripcion,estado,maps,telefono) values (?,?,?,?,?)";
         Connection con = null;
         PreparedStatement stmt = null;
@@ -114,7 +114,7 @@ public class LocalDAO extends BaseDAO {
         return local;
     }
 
-    public Local update(Local local) throws DAOExcepcion {
+    public Local update(Local local) {
         String query = "update local direccion=?,descripcion=?,estado=?,maps=?,telefono=? where id=?";
         Connection con = null;
         PreparedStatement stmt = null;
@@ -141,7 +141,7 @@ public class LocalDAO extends BaseDAO {
         return local;
     }
 
-    public void delete(Local local) throws DAOExcepcion {
+    public void delete(Local local) {
         String query = "delete from local WHERE id=?";
         Connection con = null;
         PreparedStatement stmt = null;
