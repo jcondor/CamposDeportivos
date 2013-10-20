@@ -1,8 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.tecsup.clubapp.dao;
+
 
 import com.tecsup.clubapp.helper.ConnectionDB;
 import com.tecsup.clubapp.model.Campo;
@@ -13,10 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author LAB704-00
- */
+
 public class CampoDAO extends BaseDAO {
     
     public List<Campo> list() throws DAOExcepcion {
